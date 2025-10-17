@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Chat UI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <!-- highlight.js (syntax highlighting) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="appbar">
+      <div class="brand">Local LLM</div>
+      <div class="controls">
+  <input id="apiKey" type="password" placeholder="API Key (sk-...)" value="{{ DEFAULT_API_KEY }}" />
+        <button id="newChatBtn" title="New chat">New Chat</button>
+      </div>
+    </header>
+
+    <div id="chat">
+      <div id="messages"></div>
+      <div id="typing" class="typing" hidden>
+        <div class="spinner" aria-label="Loading"></div>
+        <span>Thinking…</span>
+      </div>
+      <div class="composer">
+        <textarea id="userInput" rows="2" placeholder="Type your message... (Enter to send • Shift+Enter = newline)"></textarea>
+        <button id="sendBtn" title="Send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- marked.js for markdown rendering -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <!-- highlight.js for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.configure({ignoreUnescapedHTML:true});</script>
+  <script>
+    window.APP_CONFIG = {
+      DEFAULT_API_BASE: "{{ DEFAULT_API_BASE }}",
+      DEFAULT_MODEL: "{{ DEFAULT_MODEL }}",
+    };
+  </script>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

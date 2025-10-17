@@ -1,0 +1,15 @@
+__pycache__/
+.venv/
+.venvenv/
+*.pyc
+.DS_Store
+
+# Exclude local model weights (keep folder)
+models/*.gguf
+models/*.GGUF
+
+# SentenceTransformers caches (optional)
+data/training/
+.cache/
+cache/
+**/.ipynb_checkpoints

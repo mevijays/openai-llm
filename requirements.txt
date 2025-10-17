@@ -1,0 +1,9 @@
+fastapi==0.115.5
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+gpt4all==2.8.2
+orjson==3.10.7
+python-multipart==0.0.12
+Flask==3.0.3
+sentence-transformers==3.0.1
+psutil==5.9.8
